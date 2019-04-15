@@ -1,0 +1,24 @@
+{
+    "events": [
+      {
+        "title": "Release RN course",
+        "date": "2020-06-15T00:00:00.000Z",
+        "id": "05dafc66-bd91-43a0-a752-4dc40f039144"
+      },
+      {
+        "title": "Test1",
+        "date": "2019-06-15T00:00:00.000Z",
+        "id": "001c9b6d-00a9-465c-a2d3-afb7176a0a87"
+      },
+      {
+        "title": "Bla Bla Bla Test2",
+        "date": "2021-06-15T00:00:00.000Z",
+        "id": "4cdbe78f-54df-4769-bf3b-02a930161ec5"
+      },
+      {
+        "title": "Hallo Test3",
+        "date": "2020-04-21T00:00:00.000Z",
+        "id": "81066e94-5e2a-410a-986c-67dcc72d3a82"
+      }
+    ]
+  }

@@ -1,13 +1,29 @@
 import React, { Component } from "react";
-import { Text } from "react-native";
+import { FlatList, Text } from "react-native";
+
+import EventCard from './EventCard'
 
 class EventList extends Component {
+    state = {
+        events: []
+    }
+
+    componentDidMount() {
+        const events = require('./db.json').events.map(e => ({
+            ...e,
+            date: new Date(e.date),
+        }));
+        this.setState({ events });
+    }
+
     render() {
         return (
-            <Text>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            </Text>
-        )
+            <FlatList 
+                data={this.state.events}
+                renderItem={({item}) => <EventCard event={item} />}
+                keyExtractor={item => item.id}
+            />
+        );
     }
 }
 
