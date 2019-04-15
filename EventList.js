@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, StyleSheet, SafeAreaView } from "react-native";
+import GlobalStyles from './GlobalStyles';
 
 import EventCard from './EventCard'
+
+const styles = StyleSheet.create({
+    list: {
+        flex: 1,
+        paddingTop: 20,
+        backgroundColor: '#F3F3F3',
+    },
+})
 
 class EventList extends Component {
     state = {
@@ -18,11 +27,14 @@ class EventList extends Component {
 
     render() {
         return (
-            <FlatList 
-                data={this.state.events}
-                renderItem={({item}) => <EventCard event={item} />}
-                keyExtractor={item => item.id}
-            />
+            <SafeAreaView style={GlobalStyles.droidSafeArea}>
+                <FlatList 
+                    style={styles.list}
+                    data={this.state.events}
+                    renderItem={({item}) => <EventCard event={item} />}
+                    keyExtractor={item => item.id}
+                />
+            </SafeAreaView>
         );
     }
 }
