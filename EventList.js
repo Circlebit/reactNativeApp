@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { FlatList, Text, StyleSheet, SafeAreaView } from "react-native";
+import ActionButton from 'react-native-action-button';
 import GlobalStyles from './GlobalStyles';
-
+ 
 import EventCard from './EventCard'
 
 const styles = StyleSheet.create({
@@ -35,7 +36,7 @@ class EventList extends Component {
     }
 
     render() {
-        return (
+        return [
             <SafeAreaView style={GlobalStyles.droidSafeArea}>
                 <FlatList 
                     style={styles.list}
@@ -43,8 +44,13 @@ class EventList extends Component {
                     renderItem={({item}) => <EventCard event={item} />}
                     keyExtractor={item => item.id}
                 />
-            </SafeAreaView>
-        );
+            </SafeAreaView>,
+            <ActionButton 
+                key="fab"
+                onPress={this.handleAddEvent}
+                buttonColor="rgba(231, 76, 60, 1)"
+            />
+        ];
     }
 }
 
