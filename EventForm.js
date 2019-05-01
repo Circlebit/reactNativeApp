@@ -7,7 +7,7 @@ import {
 
 class EventForm extends Component {
     handleAddPress = () => {
-
+        this.props.navigation.navigate('list');
     }
 
     render() {

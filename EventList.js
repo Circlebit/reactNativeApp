@@ -35,6 +35,10 @@ class EventList extends Component {
         this.setState({ events });
     }
 
+    handleAddEvent = () => {
+        this.props.navigation.navigate('form');
+    }
+
     render() {
         return [
             <SafeAreaView style={GlobalStyles.droidSafeArea}>
